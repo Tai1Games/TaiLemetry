@@ -1,0 +1,21 @@
+{
+    "name": "Codigo¿?",
+    "references": [
+        ""
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "que",
+            "expression": "es",
+            "define": "esto?"
+        }
+    ],
+    "noEngineReferences": false
+}

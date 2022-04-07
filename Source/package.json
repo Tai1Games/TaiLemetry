@@ -3,7 +3,6 @@
   "displayName": "TaiLemetry",
   "version": "0.0.1",
   "description": "Telemetry system for games made by Tai1Games",
-  "dependencies": {},
   "keywords": [
     "unity",
     "tai1",
@@ -19,5 +18,6 @@
   "author": "Tai1Games (pero solo la mitad) (https://github.com/Tai1Games)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  },
+  "unity": "2020.3"
 }
