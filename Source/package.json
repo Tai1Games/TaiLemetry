@@ -1,13 +1,13 @@
 {
   "name": "com.tai1.tailemetry-package",
-  "displayName": "mas paquete que juanma al lol",
+  "displayName": "TaiLemetry",
   "version": "0.0.1",
-  "description": "mira que chulo",
-  "dependencies": { },
+  "description": "Telemetry system for games made by Tai1Games",
+  "dependencies": {},
   "keywords": [
     "unity",
-	"tai1",
-	"ucm",
+    "tai1",
+    "ucm",
     "utility"
   ],
   "homepage": "https://github.com/Tai1Games/TaiLemetry",
@@ -16,7 +16,7 @@
     "url": "https://github.com/Tai1Games/TaiLemetry"
   },
   "license": "no copies",
-  "author": "tai uno (https://github.com/Tai1Games)",
+  "author": "Tai1Games (pero solo la mitad) (https://github.com/Tai1Games)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }
