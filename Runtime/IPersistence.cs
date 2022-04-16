@@ -9,6 +9,8 @@ namespace Tailemetry
 	{
 
 		public void Send(TrackerEv ev);
+
+		public void Flush();
 	};
 };
 

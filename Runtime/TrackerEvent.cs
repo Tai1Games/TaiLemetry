@@ -32,6 +32,9 @@ namespace Tailemetry
 			TimeStamp = (long)(DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds; //timestamp since epoch
 			SessionId = AnalyticsSessionInfo.sessionId;
 		}
+
+		//TODO all user event should implement how they are serialized
+		//public abstract string ToJSON();
 	};
 
 	//Progression events
