@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 namespace Tailemetry
 {
 
-	public class JsonSerializer : Serializer
+	public class JsonSerializer : ISerializer
 	{
 		public string Serialize(TrackerEvent ev)
 		{

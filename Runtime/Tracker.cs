@@ -10,7 +10,7 @@ namespace Tailemetry
 		private static Tracker instance = null;
 
 		//Persistence object to use
-		Persistence persistence;
+		IPersistence persistence;
         
 		public static Tracker GetInstance()
 		{

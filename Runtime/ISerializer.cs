@@ -5,7 +5,7 @@ namespace Tailemetry
 {
 
 	//Interface to be implemented by different types of serialization
-	public interface Serializer
+	public interface ISerializer
 	{
 		public string Serialize(TrackerEvent ev);
 	};
