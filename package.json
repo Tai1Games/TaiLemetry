@@ -1,8 +1,8 @@
 {
-  "name": "com.tai1games.TaiLemetry",
+  "name": "com.tai1games.tailemetry",
   "displayName": "Tai1Games (Pero la mitad) - tailemetry",
   "version": "0.0.0",
-  "unity": "2020.3.13",
+  "unity": "2020.3",
   "description": "Paquete de telemetria desarrollado para los juegos de tai1games",
   "keywords": [
     "unity",
