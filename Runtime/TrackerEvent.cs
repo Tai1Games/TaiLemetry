@@ -22,6 +22,9 @@ namespace Tailemetry
 			sessionId = AnalyticsSessionInfo.sessionId;
 			eventType = type;
 		}
+
+		//TODO all user event should implement how they are serialized
+		//public abstract string ToJSON();
 	};
 };
 

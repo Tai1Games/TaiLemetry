@@ -8,7 +8,6 @@ namespace Tailemetry
 	public class Tracker
 	{
 		private static Tracker instance = null;
-
 		//Persistence object to use
 		IPersistence persistence;
         
@@ -24,7 +23,7 @@ namespace Tailemetry
 			//load type of persistence with specified formatter
 			//could pass type as argument as well and then instantiate it inside persistence itself
 			//for now it's only file
-			persistence = new FilePersistence(new JsonSerializer());
+			persistence = new FilePersistenceAsync(new JsonSerializer(),"Async");
 
 			//Send session start event
 			TrackEvent(new TrackerEvent(EventType.StartSession)); //should actually be a completable
@@ -36,7 +35,11 @@ namespace Tailemetry
 		}
 
 		public void TrackEvent(TrackerEvent ev){
-			
+			persistence.Send(ev);
+		}
+
+		public void Save(){
+			persistence.Flush();
 		}
 	};
 };
