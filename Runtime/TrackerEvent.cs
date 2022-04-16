@@ -43,16 +43,11 @@ namespace Tailemetry
 
 	//Progression events
 	//-------------------------------------------------
-	//Serializable dictionary declaration to be used in the event
-	[Serializable]
-	public class StringObjectDictionary : SerializableDictionary<string,int>{}
-
-
 	public class ProgressionEv : TrackerEv
 	{
 		[SerializeField]
-		private StringObjectDictionary _progressionDict;
-		public StringObjectDictionary ProgressionDict
+		private Dictionary<string, object> _progressionDict;
+		public Dictionary<string, object> ProgressionDict
 		{
 			get { return _progressionDict; }
 			set { _progressionDict = value; }
@@ -60,7 +55,7 @@ namespace Tailemetry
 
 		public ProgressionEv() : base()
 		{
-			_progressionDict = new StringObjectDictionary();
+			_progressionDict = new Dictionary<string, object>();
 		}
 	}
 
