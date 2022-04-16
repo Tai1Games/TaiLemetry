@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
+using System.IO;
 
 namespace Tailemetry
 {
@@ -8,7 +9,6 @@ namespace Tailemetry
 	public class Tracker
 	{
 		private static Tracker instance = null;
-
 		//Persistence object to use
 		IPersistence persistence;
         
@@ -24,19 +24,25 @@ namespace Tailemetry
 			//load type of persistence with specified formatter
 			//could pass type as argument as well and then instantiate it inside persistence itself
 			//for now it's only file
-			persistence = new FilePersistence(new JsonSerializer());
+			persistence = new FilePersistenceAsync(new JsonSerializer(),"Async");
 
 			//Send session start event
-			TrackEvent(new TrackerEvent(EventType.StartSession)); //should actually be a completable
+			TrackerEv startEvent = new TrackerEv();
+			startEvent.EventType = "START_EVENT";
 		}
 
 		public void End(){
 			//Send session end event
-			TrackEvent(new TrackerEvent(EventType.EndSession));
+			TrackerEv startEvent = new TrackerEv();
+			startEvent.EventType = "END_EVENT";
 		}
 
-		public void TrackEvent(TrackerEvent ev){
-			
+		public void TrackEvent(TrackerEv ev){
+			persistence.Send(ev);
+		}
+
+		public void Save(){
+			persistence.Flush();
 		}
 	};
 };

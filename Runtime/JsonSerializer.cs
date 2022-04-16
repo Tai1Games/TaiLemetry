@@ -6,9 +6,13 @@ namespace Tailemetry
 
 	public class JsonSerializer : ISerializer
 	{
-		public string Serialize(TrackerEvent ev)
+		public string Serialize(TrackerEv ev)
 		{
 			return JsonUtility.ToJson(ev);
+		}
+
+		public string GetFormatExtension(){
+			return ".json";
 		}
 	};
 };

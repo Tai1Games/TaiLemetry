@@ -8,7 +8,9 @@ namespace Tailemetry
 	public interface IPersistence
 	{
 
-		public void Send(TrackerEvent ev);
+		public void Send(TrackerEv ev);
+
+		public void Flush();
 	};
 };
 
