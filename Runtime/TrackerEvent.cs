@@ -41,6 +41,10 @@ namespace Tailemetry
 		public Dictionary<string, int> ProgressionDict{
 			get { return _progressionDict; }
 			set { _progressionDict = value; }
+		}
+
+		public ProgressionEv() : base() {
+			_progressionDict = new Dictionary<string, int>();
 		}		
 	}
 
@@ -51,6 +55,10 @@ namespace Tailemetry
 		public int Value{
 			get { return _value; }
 			set { _value = value; }
+		}
+
+		public UIEv() : base() {
+
 		}
 	}
 };
