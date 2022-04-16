@@ -24,7 +24,7 @@ namespace Tailemetry
 			//load type of persistence with specified formatter
 			//could pass type as argument as well and then instantiate it inside persistence itself
 			//for now it's only file
-			persistence = new FilePersistenceAsync(new JsonSerializer(),"Async");
+			persistence = new FilePersistenceAsync(new JsonSerializer(),UnityEngine.Analytics.AnalyticsSessionInfo.sessionId+"_traces");
 
 			//Send session start event
 			TrackerEv startEvent = new TrackerEv();
