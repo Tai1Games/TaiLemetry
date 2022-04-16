@@ -6,7 +6,7 @@ namespace Tailemetry
 
 	public class JsonSerializer : ISerializer
 	{
-		public string Serialize(TrackerEvent ev)
+		public string Serialize(TrackerEv ev)
 		{
 			return "";
 		}
