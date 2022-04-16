@@ -28,12 +28,14 @@ namespace Tailemetry
 			persistence = new FilePersistence(new JsonSerializer());
 
 			//Send session start event
-			StartSessionEv startEvent = new StartSessionEv();
+			TrackerEv startEvent = new TrackerEv();
+			startEvent.EventType = "START_EVENT";
 		}
 
 		public void End(){
 			//Send session end event
-			EndSessionEv endEvent = new EndSessionEv();
+			TrackerEv startEvent = new TrackerEv();
+			startEvent.EventType = "END_EVENT";
 		}
 
 		public void TrackEvent(TrackerEv ev){
