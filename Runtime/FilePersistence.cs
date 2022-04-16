@@ -11,7 +11,7 @@ namespace Tailemetry
 		public FilePersistence(ISerializer serializerFormat){
 			serializer = serializerFormat;
 		}
-		public void Send(TrackerEvent ev){
+		public void Send(TrackerEv ev){
 			//Serialize object with serializer
 			
 			//serializers.serialize(ev) or whatever
