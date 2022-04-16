@@ -37,14 +37,14 @@ namespace Tailemetry
 	//Progression events
 	//-------------------------------------------------
 	public class ProgressionEv : TrackerEv {
-		private Dictionary<string, int> _progressionDict;
-		public Dictionary<string, int> ProgressionDict{
+		private Dictionary<string, object> _progressionDict;
+		public Dictionary<string, object> ProgressionDict{
 			get { return _progressionDict; }
 			set { _progressionDict = value; }
 		}
 
 		public ProgressionEv() : base() {
-			_progressionDict = new Dictionary<string, int>();
+			_progressionDict = new Dictionary<string, object>();
 		}		
 	}
 
