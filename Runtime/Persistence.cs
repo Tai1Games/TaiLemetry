@@ -5,9 +5,8 @@ namespace Tailemetry
 {
 
 	//Interface to be implemented by different types of persistence
-	public interface IPersistence
+	public interface Persistence
 	{
-
 		public void Send(TrackerEv ev);
 
 		public void Flush();
