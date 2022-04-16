@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,10 +7,9 @@ namespace Tailemetry
 
 	public class JsonSerializer : ISerializer
 	{
-		static int i = 0;
 		public string Serialize(TrackerEv ev)
 		{
-			return (i++).ToString();
+			return JsonConvert.SerializeObject(ev);
 		}
 
 		public string GetFormatExtension(){

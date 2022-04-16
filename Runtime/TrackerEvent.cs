@@ -10,57 +10,69 @@ namespace Tailemetry
 	//-------------------------------------------------
 	public class TrackerEv
 	{
+		[SerializeField]
 		private string _eventType;
-		public string EventType{
+		public string EventType
+		{
 			get { return _eventType; }
 			set { _eventType = value; }
 		}
 
+		[SerializeField]
 		private long _timeStamp;
-		public long TimeStamp{
+		public long TimeStamp
+		{
 			get { return _timeStamp; }
 			set { _timeStamp = value; }
 		}
 
+		[SerializeField]
 		private long _sessionId;
-		public long SessionId{
+		public long SessionId
+		{
 			get { return _sessionId; }
 			set { _sessionId = value; }
 		}
 
-		public TrackerEv(){
+		public TrackerEv()
+		{
 			TimeStamp = (long)(DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds; //timestamp since epoch
 			SessionId = AnalyticsSessionInfo.sessionId;
 		}
-
-		//TODO all user event should implement how they are serialized
-		//public abstract string ToJSON();
 	};
 
 	//Progression events
 	//-------------------------------------------------
-	public class ProgressionEv : TrackerEv {
+	public class ProgressionEv : TrackerEv
+	{
+		[SerializeField]
 		private Dictionary<string, object> _progressionDict;
-		public Dictionary<string, object> ProgressionDict{
+		public Dictionary<string, object> ProgressionDict
+		{
 			get { return _progressionDict; }
 			set { _progressionDict = value; }
 		}
 
-		public ProgressionEv() : base() {
+		public ProgressionEv() : base()
+		{
 			_progressionDict = new Dictionary<string, object>();
-		}		
+		}
 	}
 
 	//UI events
 	//-------------------------------------------------
-	public class UIEv : TrackerEv{
+	public class UIEv : TrackerEv
+	{
+		[SerializeField]
 		private int _value;
-		public int Value{
+		public int Value
+		{
 			get { return _value; }
 			set { _value = value; }
 		}
 
-		public UIEv() : base() {
+		public UIEv() : base()
+		{
 
 		}
 	}

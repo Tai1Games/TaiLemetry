@@ -20,6 +20,9 @@
     "url": "git+ssh://git@github.com/tai1games/TaiLemetry.git"
   },
   "license": "MIT",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json":  "3.0.2"
+  },
   "author": "Tai1Games (Pero la mitad) (https://tai1games.itch.io)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
