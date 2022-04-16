@@ -8,7 +8,7 @@ namespace Tailemetry
 	{
 		public string Serialize(TrackerEvent ev)
 		{
-			return "";
+			return JsonUtility.ToJson(ev);
 		}
 	};
 };

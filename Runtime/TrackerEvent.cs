@@ -5,15 +5,20 @@ using System;
 
 namespace Tailemetry
 {
+	[Serializable]
 	public enum EventType{
 		StartSession,
 		EndSession,
 	}
 
+	[Serializable]
 	public class TrackerEvent
 	{
+		[SerializeField]
 		EventType eventType;
+		[SerializeField]
 		long timeStamp;
+		[SerializeField]
 		long sessionId;
 
 
