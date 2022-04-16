@@ -6,12 +6,17 @@ namespace Tailemetry
 
 	public class FilePersistence : Persistence
 	{
-		public void Send(TrackerEvent ev){
+		Serializer serializer;
 
+		public FilePersistence(Serializer serializerFormat){
+			serializer = serializerFormat;
 		}
-
-		public void Flush(){
+		public void Send(TrackerEvent ev){
+			//Serialize object with serializer
 			
+			//serializers.serialize(ev) or whatever
+
+			//Persist it
 		}
 	};
 };
