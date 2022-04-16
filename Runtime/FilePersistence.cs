@@ -4,14 +4,19 @@ using UnityEngine.EventSystems;
 namespace Tailemetry
 {
 
-	public class FilePersistence : Persistence
+	public class FilePersistence : IPersistence
 	{
-		public void Send(TrackerEvent ev){
+		ISerializer serializer;
 
+		public FilePersistence(ISerializer serializerFormat){
+			serializer = serializerFormat;
 		}
-
-		public void Flush(){
+		public void Send(TrackerEvent ev){
+			//Serialize object with serializer
 			
+			//serializers.serialize(ev) or whatever
+
+			//Persist it
 		}
 	};
 };
