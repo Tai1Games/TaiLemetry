@@ -1,0 +1,27 @@
+{
+  "name": "com.tai1games.TaiLemetry",
+  "displayName": "Tai1Games (Pero la mitad) - tailemetry",
+  "version": "0.0.0",
+  "unity": "2020.3.13",
+  "description": "Paquete de telemetria desarrollado para los juegos de tai1games",
+  "keywords": [
+    "unity",
+	"unity3d",
+	"upm",
+    "tai1games",
+    "utility"
+  ],
+  "homepage": "https://github.com/tai1games/TaiLemetry.git",
+  "bugs": {
+    "url": "https://github.com/tai1games/TaiLemetry/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tai1games/TaiLemetry.git"
+  },
+  "license": "MIT",
+  "author": "Tai1Games (Pero la mitad) (https://tai1games.itch.io)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

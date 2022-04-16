@@ -2,7 +2,7 @@
 
 We use fairly "standard" github contribution workflow:
 
-1. Make an [Issue](https://github.com/{{COMPANY}}/{{REPOSITORY_NAME}}/issues/new)
+1. Make an [Issue](https://github.com/tai1games/TaiLemetry/issues/new)
 2. Fork this repository (For further details, see https://docs.github.com/en/github/getting-started-with-github/fork-a-repo)
 3. Develop changes to a new branch to your forked repository
 4. Create a Pull Request from your forked repository against this repository
@@ -23,7 +23,7 @@ Open `Packages/manifest.json` with your favorite text editor. Add following line
 ```json
     {
         "dependencies": {
-            "com.{{COMPANY}}.{{REPOSITORY_NAME}}": "https://github.com/YOUR_USER/{{REPOSITORY_NAME}}.git"
+            "com.tai1games.TaiLemetry": "https://github.com/YOUR_USER/TaiLemetry.git"
         }
     }
 ```
@@ -91,7 +91,7 @@ representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at {{REPORT_EMAIL}}.
+reported to the community leaders responsible for enforcement at yes.
 All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the
