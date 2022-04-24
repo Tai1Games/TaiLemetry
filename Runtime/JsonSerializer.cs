@@ -15,6 +15,14 @@ namespace Tailemetry
 		public string GetFormatExtension(){
 			return ".json";
 		}
+
+		public string GetHeader(){
+			return "{\"events\":[";
+		}
+
+		public string GetFooter(){
+			return "]}";
+		}
 	};
 };
 
