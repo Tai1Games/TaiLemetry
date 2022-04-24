@@ -21,10 +21,18 @@ namespace Tailemetry
 		}
 
 		public void Init(){
+			string tracePath = "";
+			//in case we had a configuration file.
+			if (File.Exists("TaiLemetry.config")){
+				StreamReader sr = new StreamReader("TaiLemetry.config");
+				tracePath = sr.ReadLine();
+				sr.Close();
+			}
+
 			//load type of persistence with specified formatter
 			//could pass type as argument as well and then instantiate it inside persistence itself
 			//for now it's only file
-			persistence = new FilePersistenceAsync(new JsonSerializer(),UnityEngine.Analytics.AnalyticsSessionInfo.sessionId+"_traces");
+			persistence = new FilePersistenceAsync(new JsonSerializer(),tracePath + UnityEngine.Analytics.AnalyticsSessionInfo.sessionId+"_traces");
 
 			//Send session start event
 			TrackerEv startEvent = new TrackerEv();
