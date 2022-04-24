@@ -11,15 +11,16 @@ namespace Tailemetry
 	{
 		FlushData flushData;
 		private struct FlushData
-        {
+		{
 			public ConcurrentQueue<TrackerEv> queue;
 			public ISerializer serializer;
 			public string path;
-        }
-		
+		}
 
 
-		public FilePersistenceAsync(ISerializer serializerFormat, string path){
+
+		public FilePersistenceAsync(ISerializer serializerFormat, string path)
+		{
 			flushData = new FlushData();
 
 			flushData.serializer = serializerFormat;
@@ -27,27 +28,72 @@ namespace Tailemetry
 			flushData.path = path + serializerFormat.GetFormatExtension();
 
 		}
-		public void Send(TrackerEv ev){
+		public void Send(TrackerEv ev)
+		{
 			//Save event in queue
 			flushData.queue.Enqueue(ev);
 		}
 
-		public void Flush(){
+		public void Flush()
+		{
 			var flushThread = new Thread(FlushQueue);
 			flushThread.Start(flushData);
 		}
 
-		private static void FlushQueue(object data){
+		private static void FlushQueue(object data)
+		{
 			FlushData flushData = (FlushData)data;
-			StreamWriter sw = new StreamWriter(flushData.path,append:true);
+			StreamWriter sw = new StreamWriter(flushData.path, append: true);
 			TrackerEv ev;
 
+			WriteFileHeader(flushData, sw);
+
 			//In to avoid starvation, This is the ONLY place that can deque data
-			while(!flushData.queue.IsEmpty){
+			while (!flushData.queue.IsEmpty)
+			{
 				flushData.queue.TryDequeue(out ev);
-				sw.WriteLine(flushData.serializer.Serialize(ev));
+				WriteFileEntry(flushData, sw, ev);
 			}
+
+			WriteFileFooter(flushData, sw);
+
 			sw.Close();
+		}
+
+		private static void WriteFileHeader(FlushData flushData, StreamWriter sw)
+		{
+			switch (flushData.serializer)
+			{
+				case JsonSerializer _:
+					sw.WriteLine("{\"events\":[");
+					break;
+				default:
+					break;
+			}
+		}
+
+		private static void WriteFileFooter(FlushData flushData, StreamWriter sw)
+		{
+			switch (flushData.serializer)
+			{
+				case JsonSerializer _:
+					sw.WriteLine("]}");
+					break;
+				default:
+					break;
+			}
+		}
+
+		private static void WriteFileEntry(FlushData flushData, StreamWriter sw, TrackerEv ev)
+		{
+			switch (flushData.serializer)
+			{
+				case JsonSerializer _:
+					sw.WriteLine($"{flushData.serializer.Serialize(ev)},");
+					break;
+				default:
+					break;
+			}
 		}
 	};
 };
