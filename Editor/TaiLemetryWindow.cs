@@ -19,6 +19,15 @@ namespace Tailemetry.Editor
 		public static void ShowWindow(){
 			GetWindow<TaiLemetryWindow>("TaiLemetry");
 		}
+		void CreateGUI()
+		{
+			if (File.Exists("TaiLemetry.config"))
+			{
+				StreamReader sr = new StreamReader("TaiLemetry.config");
+				Path = sr.ReadLine();
+				sr.Close();
+			}
+		}
 
 		void OnGUI(){
 			GUILayout.Label("Telemetry Configuration.", EditorStyles.boldLabel);
@@ -29,7 +38,7 @@ namespace Tailemetry.Editor
 
 			if (GUILayout.Button("Select trace data folder"))
 			{
-				Path = EditorUtility.SaveFolderPanel("Trace path data folder", "", "") + "/";
+				Path = EditorUtility.SaveFolderPanel("Trace path data folder", "", "");
 			}
 
 			EditorGUILayout.Space();
@@ -38,6 +47,7 @@ namespace Tailemetry.Editor
 				StreamWriter sw = new StreamWriter("TaiLemetry.config");
 				sw.WriteLine(Path);
 				sw.Close();
+				this.ShowNotification(new GUIContent("Changes saved."));
 			}
 		}
 
