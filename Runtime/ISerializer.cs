@@ -8,8 +8,9 @@ namespace Tailemetry
 	public interface ISerializer
 	{
 		public string Serialize(TrackerEv ev);
-
 		public string GetFormatExtension();
+		public string GetHeader();
+		public string GetFooter();
 	};
 };
 

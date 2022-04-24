@@ -46,50 +46,28 @@ namespace Tailemetry
 			StreamWriter sw = new StreamWriter(flushData.path, append: true);
 			TrackerEv ev;
 
-			WriteFileHeader(flushData, sw);
+			sw.WriteLine(flushData.serializer.GetHeader());
 
 			//In to avoid starvation, This is the ONLY place that can deque data
 			while (!flushData.queue.IsEmpty)
 			{
 				flushData.queue.TryDequeue(out ev);
 				WriteFileEntry(flushData, sw, ev);
+				sw.WriteLine($"{flushData.serializer.Serialize(ev)},");
 			}
 
-			WriteFileFooter(flushData, sw);
+			sw.WriteLine(flushData.serializer.GetFooter());
 
 			sw.Close();
 		}
 
-		private static void WriteFileHeader(FlushData flushData, StreamWriter sw)
-		{
-			switch (flushData.serializer)
-			{
-				case JsonSerializer _:
-					sw.WriteLine("{\"events\":[");
-					break;
-				default:
-					break;
-			}
-		}
-
-		private static void WriteFileFooter(FlushData flushData, StreamWriter sw)
-		{
-			switch (flushData.serializer)
-			{
-				case JsonSerializer _:
-					sw.WriteLine("]}");
-					break;
-				default:
-					break;
-			}
-		}
 
 		private static void WriteFileEntry(FlushData flushData, StreamWriter sw, TrackerEv ev)
 		{
 			switch (flushData.serializer)
 			{
 				case JsonSerializer _:
-					sw.WriteLine($"{flushData.serializer.Serialize(ev)},");
+					
 					break;
 				default:
 					break;
